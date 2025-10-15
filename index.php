@@ -1,7 +1,24 @@
 <?php
 
+trait Length
+{
+
+    public $length;
+
+    public function setLength($newLength)
+    {
+        if ($newLength > 0) {
+            $this->length = $newLength;
+        } else {
+            echo "La durata non può essere di 0 minuti";
+        }
+    }
+}
+
 class Movie
 {
+
+    use Length;
     public $titolo;
     public $anno;
     public $genres;
@@ -31,6 +48,7 @@ class Genre
         $this->description = $_description;
     }
 }
+
 
 $genre_romantic = new Genre("romantic", "bla bla romantic");
 $genre_drama = new Genre("drama", "bla bla drama");
