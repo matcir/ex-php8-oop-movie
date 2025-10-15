@@ -4,14 +4,14 @@ class Movie
 {
     public $titolo;
     public $anno;
-    public $genre;
+    public $genres;
 
-    function __construct($_titolo, $_anno, Genre $_genre)
+    function __construct($_titolo, $_anno, array $_genres)
     {
 
         $this->titolo = $_titolo;
         $this->anno = $_anno;
-        $this->genre = $_genre;
+        $this->genres = $_genres;
     }
 
     public function isOld()
@@ -32,11 +32,16 @@ class Genre
     }
 }
 
-$genre_titanic = new Genre("romantic", "bla bla titanic");
-$genre_avatar = new Genre("fantasy", "bla bla avatar");
+$genre_romantic = new Genre("romantic", "bla bla romantic");
+$genre_drama = new Genre("drama", "bla bla drama");
+$genre_fantasy = new Genre("fantasy", "bla bla fantasy");
+$genre_adventure = new Genre("adventure", "bla bla adventure");
 
-$titanic = new Movie("Titanic", 1998, $genre_titanic);
-$avatar = new Movie("Avatar", 2010, $genre_avatar);
+$titanic_genres = [$genre_drama, $genre_romantic];
+$avatar_genres = [$genre_fantasy, $genre_adventure];
+
+$titanic = new Movie("Titanic", 1998, $titanic_genres);
+$avatar = new Movie("Avatar", 2010, $avatar_genres);
 
 
 var_dump($titanic);
